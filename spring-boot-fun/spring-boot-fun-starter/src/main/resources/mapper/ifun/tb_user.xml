@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fun.service.dao.ifun.TbUserDAO">
+
+
+    <sql id="all-columns">
+        id as id,
+        gmt_create as gmtCreate,
+        gmt_modified as gmtModified,
+        nick,
+        uname,
+        password 
+    </sql>
+    
+    <select id="getByNick" parameterType="map" resultType="com.fun.service.dao.domain.TbUserDO">
+        select 
+        <include refid="all-columns" />
+        from tb_user
+        where nick = #{nick}
+        limit 1
+    </select>
+
+    
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <parent>
+    <groupId>com.fun</groupId>
+    <artifactId>spring-boot-fun-root</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>spring-boot-fun-starter</artifactId>
+  <packaging>jar</packaging>
+  <name>spring-boot-fun-starter</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.fun</groupId>
+      <artifactId>spring-boot-fun-service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- 更改打包之后的 jar name，去掉 version 信息，便于部署 -->
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <!-- 打包插件，下面的配置非常重要，勿改！ -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>com.fun.starter.Application</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+
+</project>

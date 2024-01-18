@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="UTF-8"> <!-- encoder 可以指定字符集，对于中文输出有意义 -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger:%line - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+
+    <!-- spring-boot-fun -->
+    <logger name="com.fun.springboot" additivity="false">
+        <level value="debug"/>
+    </logger>
+
+    <!-- SQL  -->
+    <logger name="java.sql" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="com.ibatis.common.jdbc.SimpleDataSource" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="com.ibatis.common.jdbc.ScriptRunner" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="com.ibatis.common.jdbc.SimpleDataSource" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="com.ibatis.common.jdbc.ScriptRunner" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+
+</configuration>

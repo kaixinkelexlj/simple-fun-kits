@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <!--<springProfile name="dev">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+  </springProfile>-->
+
+  <springProfile name="produs,prodcn,pre">
+    <property name="LOG_HOME" value="/home/xiaoju/data1"/>
+  </springProfile>
+
+  <springProfile name="test,local,dev">
+    <property name="LOG_HOME" value="./logs"/>
+  </springProfile>
+
+  <springProfile name="local,dev">
+    <property name="LOG_HOME" value="./logs"/>
+  </springProfile>
+
+  <property name="APP" value="dps-demo"/>
+
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>[%-5level][%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}][%thread] %msg%n</Pattern>
+    </encoder>
+  </appender>
+
+  <appender name="all-appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${LOG_HOME}/${APP}.log</File>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <FileNamePattern>${LOG_HOME}/${APP}.log.%d{yyyy-MM-dd}</FileNamePattern>
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>180</maxHistory>
+    </rollingPolicy>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>[%-5level][%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}][%thread] %msg%n</Pattern>
+    </encoder>
+  </appender>
+
+  <appender name="api-access-appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${LOG_HOME}/api-access.log</file>
+    <encoder>
+      <Pattern>[%-5level][%d{yyyy-MM-dd HH:mm:ss.SSSZ}][%thread] %msg%n</Pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_HOME}/log/api-access.log.%d{yyyy-MM-dd}
+      </fileNamePattern>
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <logger name="api-access-logger" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="api-access-appender"/>
+  </logger>
+
+  <root level="INFO">
+    <springProfile name="test,local,dev">
+      <appender-ref ref="console"/>
+    </springProfile>
+    <appender-ref ref="all-appender"/>
+  </root>
+
+</configuration>
