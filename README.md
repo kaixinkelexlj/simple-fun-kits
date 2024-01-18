@@ -1,1 +1,1 @@
-### simple-fun-kits by yuanbaobaba
+a fun project by yuanbaobaba
