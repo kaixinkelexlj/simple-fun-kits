@@ -4,8 +4,7 @@ import com.simple.infra.common.client.utils.CommonUtils;
 import java.util.Optional;
 
 /**
- * @author yourname xulujun@kuaishou.com
- * Created on 2021-07-28
+ * @author xulujun
  */
 public class DefaultTraceProvider implements TraceProvider {
 

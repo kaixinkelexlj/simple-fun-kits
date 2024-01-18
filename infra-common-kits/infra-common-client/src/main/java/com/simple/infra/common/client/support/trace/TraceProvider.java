@@ -3,8 +3,7 @@ package com.simple.infra.common.client.support.trace;
 import java.util.Optional;
 
 /**
- * @author yourname xulujun@kuaishou.com
- * Created on 2021-07-28
+ * @author xulujun
  */
 public interface TraceProvider {
 
