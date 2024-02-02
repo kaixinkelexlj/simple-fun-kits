@@ -77,6 +77,13 @@
       </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
         <version>${spring-boot.version}</version>
       </dependency>
@@ -322,11 +329,6 @@
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
           <version>${spring-boot.version}</version>
-          <configuration>
-            <additionalProperties>
-              <parent>ks-boot-root-pom</parent>
-            </additionalProperties>
-          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
